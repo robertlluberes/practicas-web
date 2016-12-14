@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Android calculator style, HTML + CSS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">  
+</head>
+
+<body>
+  <div id="calculator">
+	<input type="text" id="txtScreen" />
+	<div class="numericPad">
+		<div class="rowsNumPad">
+			<input type="button" value="7" class="btnNum" onclick="writeNumbers(this.value)" />
+			<input type="button" value="8" class="btnNum" onclick="writeNumbers(this.value)" />
+			<input type="button" value="9" class="btnNum" onclick="writeNumbers(this.value)" />
+		</div>
+		<div class="rowsNumPad">
+			<input type="button" value="4" class="btnNum" onclick="writeNumbers(this.value)" />
+			<input type="button" value="5" class="btnNum" onclick="writeNumbers(this.value)" />
+			<input type="button" value="6" class="btnNum" onclick="writeNumbers(this.value)" />
+		</div>
+		<div class="rowsNumPad">
+			<input type="button" value="1" class="btnNum" onclick="writeNumbers(this.value)" />
+			<input type="button" value="2" class="btnNum" onclick="writeNumbers(this.value)" />
+			<input type="button" value="3" class="btnNum" onclick="writeNumbers(this.value)" />
+		</div>
+		<div class="rowsNumPad">
+			<input type="button" value="." class="btnNum" onclick="writeNumbers(this.value)" />
+			<input type="button" value="0" class="btnNum" onclick="writeNumbers(this.value)" />
+			<input type="button" value="=" class="btnNum" onclick="calculateResult()" />
+		</div>
+	</div>
+	<!--   End class numericPad -->
+
+	<div class="funtionPad">
+		<div class="rowsFuntionPad">
+			<input type="button" value="DEL" class="btnFuntionPad" onclick="clearEverything()" />
+		</div>
+		<div class="rowsFuntionPad">
+			<input type="button" value="÷" class="btnFuntionPad" onclick="operations(this.value)" />
+		</div>
+		<div class="rowsFuntionPad">
+			<input type="button" value="x" class="btnFuntionPad" onclick="operations(this.value)" />
+		</div>
+		<div class="rowsFuntionPad">
+			<input type="button" value="-" class="btnFuntionPad" onclick="operations(this.value)" />
+		</div>
+		<div class="rowsFuntionPad">
+			<input type="button" value="+" class="btnFuntionPad" onclick="operations(this.value)" />
+		</div>
+	</div>
+	<!--   End class funtionPad -->
+
+	<div class="extraFuntionPad">
+		<div class="rowsExtraFuntionPad">
+			<input type="button" value="!" class="btnExtraFuntionPad" onclick="operations(this.value)" />
+			<input type="button" value="PI" class="btnExtraFuntionPad" onclick="writeNumbers(Math.PI)" />
+			<input type="button" value="^" class="btnExtraFuntionPad" onclick="operations(this.value)" />
+		</div>
+	</div>
+	<!--   End class extraFuntionPad -->
+</div>
+<!-- End calculator -->
+<footer>
+   <p>Made with <span>♥</span> <a href="https://github.com/robertlluberes" target="_blank">Robert Lluberes</a></p>
+</footer>
+<!-- <script src='https://code.jquery.com/jquery-1.12.4.js'></script>
+<script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
+ -->
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>
