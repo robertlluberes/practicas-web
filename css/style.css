@@ -1,0 +1,18 @@
+.machineBox{
+  padding:30px;
+  background-color:#fff;
+  margin-top:200px;
+  border-radius:6px;
+}
+
+.quote{
+  font-family: 'Montserrat', sans-serif;
+  font-weight:900;
+  font-size:1.3em;
+}
+
+.autor{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1em;
+}
