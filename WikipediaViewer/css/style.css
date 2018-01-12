@@ -1,0 +1,66 @@
+body{
+  font-family: 'Helvetica Neue','Lora';
+}
+
+.container{
+  width:70%;
+  margin:5% auto;
+}
+
+.formBox{
+   margin-top:50px;  
+}
+
+input[type="text"]{
+  padding-left:5px;
+  width:80%;
+  height:40px;
+  font-size:1.2em;
+}
+
+button{
+  width:19%;
+  display:inline-block;
+  height:40px;
+  font-size:1.2em;
+  margin-left:-4px;
+  color: #FFF;
+  background-color: lightskyblue;
+  border: 1px solid gray;
+  border-left: none;
+}
+
+.results{
+  margin-top:50px;
+}
+
+#title > a{
+/*   text-decoration:none; */
+  color:black;
+}
+
+/* #title > a:hover{
+  color: lightskyblue;
+} */
+
+#content{
+  text-align:justify;  
+}
+
+#content > a{
+  color:black;
+  text-decoration:none;
+}
+
+article:hover{
+    border-left: 5px lightskyblue solid;
+    margin-left: -5px;
+  
+}
+.footer{
+  margin-top: 40px;
+}
+
+.footer span {
+	color: red;
+}
