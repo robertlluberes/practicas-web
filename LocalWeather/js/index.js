@@ -1,47 +1,39 @@
 $(document).ready(function () {
     getLocation();
     setTimeout(getForescastWeather, 3000);
-
-    navigator.geolocation.watchPosition(function (position) {
-        console.log("i'm tracking you!");
-        console.log(position);
-    },
-        function (error) {
-            if (error.code == error.PERMISSION_DENIED)
-                console.log("you denied me :-(");
-        });
 });
 
 var latitude = "";
 var longitude = "";
 var $grades = $("#grades");
 var $isCelcius = $('#isCelcius');
+var $weather = $("#weatherConditions");
+var $icon = $("#icon");
 
 function getLocation() {
-    if (!("geolocation" in navigator)) {
-        console.log("Geolocation is not enabled");
-    } else {
-        var $country = $("#country");
-        var $city = $("#city");
-
-        navigator.geolocation.getCurrentPosition(function (position) {
-            latitude = position.coords.latitude;
-            longitude = position.coords.longitude;
-            $.ajax({
-                url: "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitude + "," + longitude + "&sensor=true",
-                success: function (data) {
-                    $city.text(data.results[0].address_components[3].long_name);
-                    $country.text(data.results[0].address_components[4].long_name);
-                }
-            }); //End of AJAX
-        }); //End of navigator.geolocation.getCurrentPosition
+    var $country = $("#country");
+    var $city = $("#city");
+    
+    navigator.geolocation.getCurrentPosition(function (position) {
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        $.ajax({
+            url: "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitude + "," + longitude + "&sensor=true",
+            success: function (data) {
+                $city.text(data.results[0].address_components[3].long_name);
+                $country.text(data.results[0].address_components[4].long_name);
+            }
+        }); //End of AJAX
+    }, function (error) {
+        if (error.code == error.PERMISSION_DENIED)
+            $weather.text("Error: please share your location.");
+        else
+            $weather.text("error: " + error.message);
     }
+    ); //End of navigator.geolocation.getCurrentPosition
 } //End of getLocation()
 
 function getForescastWeather() {
-
-    var $weather = $("#weatherConditions");
-    var $icon = $("#icon");
 
     $.ajax({
         url: "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&APPID=061f24cf3cde2f60644a8240302983f2",
