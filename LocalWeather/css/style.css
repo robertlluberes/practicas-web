@@ -1,0 +1,69 @@
+.switch label input[type="checkbox"] + .lever{
+  background-color:#b71c1c;  
+}
+
+html, body{
+  font-family: 'Segoe UI Light', 'Open Sans', sans-serif;
+
+background: rgba(73,155,234,1);
+background: -moz-linear-gradient(left, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(73,155,234,1)), color-stop(100%, rgba(32,124,229,1)));
+background: -webkit-linear-gradient(left, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
+background: -o-linear-gradient(left, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
+background: -ms-linear-gradient(left, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
+background: linear-gradient(to right, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', endColorstr='#207ce5', GradientType=1 );
+
+
+
+
+
+}
+
+#date{
+  font-weight:bold;
+}
+
+.weather-box{
+  margin-top:30px;
+  background-color:white;
+  border-radius: 10px;
+  
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f2f5f6+0,e3eaed+37,c8d7dc+100;Grey+3D+%234 */
+  background: #f2f5f6; /* Old browsers */
+  background: -moz-linear-gradient(45deg,  #f2f5f6 0%, #e3eaed 37%, #c8d7dc 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg,  #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg,  #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', endColorstr='#c8d7dc',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.weather{
+  margin-top:70px;
+}
+
+#icon,#loading{
+  display:block;
+  margin:auto;
+}
+
+#weatherConditions{
+  text-transform:capitalize;
+}
+
+.location{
+  margin-top:70px;  
+}
+
+.controls{
+  margin: 20px 0;
+}
+
+.footer > p {
+  color:#FFF;
+}
+.footer > p > span {
+  color:red;
+}
+.footer > p > a {
+  color:#FFF;
+}
