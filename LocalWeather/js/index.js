@@ -67,17 +67,19 @@ function getForescastWeather(latitude, longitude) {
 } //End of getForescastWeather
 
 function GradesConverter(kelvinGrades, isCelcius) {
-    if ($isCelcius.is(':checked')) {
+    if(kelvinGrades > 0){
+        if ($isCelcius.is(':checked')) {
 
-        var celciusGrades = Math.round(kelvinGrades - 273);
-        $grades.text(celciusGrades).fadeOut('slow').hide().fadeIn();
-        $grades.append('<span>°</span>');
-
-    } else {
-
-        var farenheitGrades = Math.round(9 / 5 * (kelvinGrades - 273) + 32);
-        $grades.text(farenheitGrades).fadeOut('slow').hide().fadeIn();
-        $grades.append('<span>°</span>');
+            var celciusGrades = Math.round(kelvinGrades - 273);
+            $grades.text(celciusGrades).fadeOut('slow').hide().fadeIn();
+            $grades.append('<span>°</span>');
+    
+        } else {
+    
+            var farenheitGrades = Math.round(9 / 5 * (kelvinGrades - 273) + 32);
+            $grades.text(farenheitGrades).fadeOut('slow').hide().fadeIn();
+            $grades.append('<span>°</span>');
+        }
     }
 } //End of convertGrades
 
