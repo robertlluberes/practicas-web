@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>FreeCodeCamp - Show the Local Weather</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css'>
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600'>
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Arvo:700'>
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css'>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col s10 offset-s1 col m4 offset-m4 z-depth-5 weather-box hoverable">
+        <p id="date" class="center-align"></p>
+        <div class="weather">
+          <img id="loading" src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Pedro_luis_romani_ruiz.gif" alt="Loading image"
+            style="width:40px;height:40px">
+          <h1 id="grades" class="center-align"></h1>
+          <img id="icon" alt="" style="margin: 0 auto;">
+          <p id="weatherConditions" class="center-align"></p>
+        </div>
+        <div class="location">
+          <p id="city" class="center-align">
+            <span></span>
+          </p>
+          <p id="country" class="center-align">
+            <span></span>
+          </p>
+        </div>
+        <div class="controls center">
+          <div class="switch">
+            <label>
+              °F
+              <input id="isCelcius" type="checkbox" checked>
+              <span class="lever"></span>
+              °C
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="footer col s12">
+        <p class="center-align">Made with
+          <span>♥</span> by
+          <a href="https://github.com/robertlluberes" target="_blank">Robert Lluberes</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js '></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js '></script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>
