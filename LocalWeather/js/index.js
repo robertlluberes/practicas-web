@@ -1,10 +1,11 @@
 $(document).ready(function () {
+    getDate();
     getLocation();
-    setTimeout(getForescastWeather, 3000);
 });
 
 var latitude = "";
 var longitude = "";
+var baseTemperature = 0; //kelvin grades
 var $grades = $("#grades");
 var $isCelcius = $('#isCelcius');
 var $weather = $("#weatherConditions");
@@ -13,7 +14,7 @@ var $icon = $("#icon");
 function getLocation() {
     var $country = $("#country");
     var $city = $("#city");
-    
+
     navigator.geolocation.getCurrentPosition(function (position) {
         latitude = position.coords.latitude;
         longitude = position.coords.longitude;
@@ -22,6 +23,8 @@ function getLocation() {
             success: function (data) {
                 $city.text(data.results[0].address_components[3].long_name);
                 $country.text(data.results[0].address_components[4].long_name);
+
+                getForescastWeather(latitude, longitude);
             }
         }); //End of AJAX
     }, function (error) {
@@ -33,7 +36,7 @@ function getLocation() {
     ); //End of navigator.geolocation.getCurrentPosition
 } //End of getLocation()
 
-function getForescastWeather() {
+function getForescastWeather(latitude, longitude) {
 
     $.ajax({
         url: "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&APPID=061f24cf3cde2f60644a8240302983f2",
@@ -51,14 +54,13 @@ function getForescastWeather() {
             $("#weatherConditions").fadeIn('slow');
         },
         success: function (data) {
-
-            GradesConverter(data.main.temp, isCelcius);
-
+            baseTemperature = data.main.temp;
+            GradesConverter(baseTemperature, isCelcius);
             $icon.attr("src", "http://www.openweathermap.org/img/w/" + data.weather[0].icon + ".png");
             $weather.text(data.weather[0].description).css("text-transform:capitalize");
         },
-        error() {
-            $weather.text("Error: please share your location");
+        error(ex) {
+            $weather.text(ex.message);
         }
     });
 
@@ -66,23 +68,34 @@ function getForescastWeather() {
 
 function GradesConverter(kelvinGrades, isCelcius) {
     if ($isCelcius.is(':checked')) {
-        $grades.text(Math.round(kelvinGrades - 273)).fadeOut('slow').hide().fadeIn();
+
+        var celciusGrades = Math.round(kelvinGrades - 273);
+        $grades.text(celciusGrades).fadeOut('slow').hide().fadeIn();
         $grades.append('<span>°</span>');
+
     } else {
-        $grades.text(Math.round(9 / 5 * (kelvinGrades - 273) + 32)).fadeOut('slow').hide().fadeIn();
+
+        var farenheitGrades = Math.round(9 / 5 * (kelvinGrades - 273) + 32);
+        $grades.text(farenheitGrades).fadeOut('slow').hide().fadeIn();
         $grades.append('<span>°</span>');
     }
 } //End of convertGrades
 
 
 $isCelcius.click(function () {
-    getForescastWeather();
+    GradesConverter(baseTemperature, isCelcius);
 });
 
-///------------------------------------------
-var currentDate = new Date();
 
-$("#date").text(getWeekDay(currentDate) + ", " + getMonthName(currentDate) + " " + currentDate.getDate() + " " + currentDate.getFullYear());
+function getDate() {
+    var currentDate = new Date();
+    var weekDay = getWeekDay(currentDate);
+    var monthName = getMonthName(currentDate)
+    var dayOfMonth = currentDate.getDate();
+    var year = currentDate.getFullYear();
+
+    $("#date").text(weekDay + ", " + monthName + " " + dayOfMonth + " " + year);
+}
 
 function getWeekDay(date) {
     var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
