@@ -1,0 +1,22 @@
+.card .card-content > p{
+  color: #fff;
+}
+
+.userName{
+  font-weight: bold;
+}
+
+.card, .tabs{
+  background-color:#6441a4;
+}
+
+.tabs .tab a{
+  color:#d3cae8;
+}
+
+.tabs .tab a:hover, a:active{
+  color: #fff;
+}
+.tabs .tab a.active{
+  color: #fff;
+}
